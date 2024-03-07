@@ -40,6 +40,11 @@ func WithPrAndIssueQueryParams(client *api.Client, baseRepo ghrepo.Interface, ba
 	if len(state.Milestones) > 0 {
 		q.Set("milestone", state.Milestones[0])
 	}
+
+	if state.Template != "" {
+		q.Set("template", state.Template)
+	}
+
 	u.RawQuery = q.Encode()
 	return u.String(), nil
 }

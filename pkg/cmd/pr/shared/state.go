@@ -20,8 +20,9 @@ type IssueMetadataState struct {
 
 	Draft bool
 
-	Body  string
-	Title string
+	Body     string
+	Title    string
+	Template string
 
 	Metadata   []string
 	Reviewers  []string
@@ -44,7 +45,8 @@ func (tb *IssueMetadataState) IsDirty() bool {
 }
 
 func (tb *IssueMetadataState) HasMetadata() bool {
-	return len(tb.Reviewers) > 0 ||
+	return tb.Template != "" ||
+		len(tb.Reviewers) > 0 ||
 		len(tb.Assignees) > 0 ||
 		len(tb.Labels) > 0 ||
 		len(tb.Projects) > 0 ||

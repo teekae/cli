@@ -156,6 +156,7 @@ func createRun(opts *CreateOptions) (err error) {
 		Milestones: milestones,
 		Title:      opts.Title,
 		Body:       opts.Body,
+		Template:   opts.Template,
 	}
 
 	if opts.RecoverFile != "" {

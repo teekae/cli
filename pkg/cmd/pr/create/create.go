@@ -254,6 +254,9 @@ func createRun(opts *CreateOptions) (err error) {
 		if err != nil {
 			return
 		}
+
+		state.Template = opts.Template
+
 		openURL, err = generateCompareURL(*ctx, *state)
 		if err != nil {
 			return
@@ -852,6 +855,7 @@ func generateCompareURL(ctx CreateContext, state shared.IssueMetadataState) (str
 	if err != nil {
 		return "", err
 	}
+
 	return url, nil
 }
 
